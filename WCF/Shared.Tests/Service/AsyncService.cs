@@ -37,7 +37,7 @@
                 {
                     await file.WriteLineAsync("This is a line " + i);
                     TelemetryClient client = new TelemetryClient();
-                    client.TrackDependency("File", tempFile, start, TimeSpan.FromSeconds(1), true);
+                    client.TrackDependency("File", "File", tempFile, start, TimeSpan.FromSeconds(1), true);
                 }
             }
 

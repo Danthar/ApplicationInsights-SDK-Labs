@@ -114,7 +114,8 @@
 
             var evt = TestTelemetryChannel.CollectedData().First();
             Assert.AreEqual("ISimpleService.CatchAllOperation", evt.Context.Operation.Name);
-            Assert.AreEqual("http://someaction", evt.Context.Properties["soapAction"]);
+            var evtWithProps = evt as ISupportProperties;
+            Assert.AreEqual("http://someaction", evtWithProps.Properties["soapAction"]);
         }
 
         [TestMethod]
